@@ -182,6 +182,7 @@ código | mnemônico | tamanho | operações
 
 Para cada programa abaixo, represente-o em linguagem de montagem, e diga o que faz o programa.
 
+#### Programa 1
 .            | .   | .   | .   | .   | .   | .   | .   | .   | .   | .
 -----------: | --: | --: | --: | --: | --: | --: | --: | --: | --: | --: 
 **endereço** |  0  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9
@@ -190,7 +191,7 @@ Para cada programa abaixo, represente-o em linguagem de montagem, e diga o que f
 **endereço** | 10  | 11  | 12  | 13  | 14  | 15  | 16  | 17  | 18  | 19
 **valor**    |  5  | 22  | 18  | 23  |  1  | 23  |  3  |  9  |  2  | ?
 
-
+#### Programa 2
 .            | .   | .   | .   | .   | .   | .   | .   | .   | .   | .
 -----------: | --: | --: | --: | --: | --: | --: | --: | --: | --: | --: 
 **endereço** |  0  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9
@@ -202,7 +203,7 @@ Para cada programa abaixo, represente-o em linguagem de montagem, e diga o que f
 **endereço** | 20 
 **valor**    |  0 
 
-
+#### Programa 3
 .            | .   | .   | .   | .   | .   | .   | .   | .   | .   | .
 -----------: | --: | --: | --: | --: | --: | --: | --: | --: | --: | --: 
 **endereço** |  0  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9
@@ -211,8 +212,7 @@ Para cada programa abaixo, represente-o em linguagem de montagem, e diga o que f
 **endereço** | 10  | 11  | 12  | 13  | 14
 **valor**    | 0 | 9 | 1 | 1 | 6 
 
-
-
+#### Programa 4
 .            | .   | .   | .   | .   | .   | .   | .   | .   | .   | .
 -----------: | --: | --: | --: | --: | --: | --: | --: | --: | --: | --: 
 **endereço** |  0  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9
