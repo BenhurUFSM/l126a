@@ -47,7 +47,8 @@ Os assuntos vistos em aula serão listados aqui.
 
 |    N |   data | assunto
 | ---: | -----: | :--------
-|    1 | 3mar  | apresentação, introdução
+|    1 | 3mar  | apresentação, introdução, [organização de um computador](Assuntos/organizacao.md)
+|    2 | 5mar  | [organização de um computador (cont, exercícios)](Assuntos/organizacao.md)
 
 
 ## Exercícios, trabalhos
