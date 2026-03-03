@@ -59,6 +59,12 @@ A descrição dos exercícios e trabalhos a entregar será colocada abaixo.
 
 ## Notas, etc
 
+A avaliação será realizada por trabalhos de programação desenvolvidos durante o semestre.
+Esses trabalhos serão descritos na tabela acima.
+Eles receberão uma análise inicial após a entrega, sem avaliação.
+A avaliação será realizada no final do semestre, quando cada aluno enviará a versão final de seus trabalhos (ou um subconjunto deles), juntamente com uma auto-avaliação.
+Além disso, haverá uma conversa individual com o professor.
+
 Informações individuais sobre os alunos (identificação, datas para a entrevista final, notas, etc) estarão em uma planilha disponibilizada brevemente.
 A planilha vai sendo preenchida durante o semestre.
 
