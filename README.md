@@ -57,7 +57,7 @@ A descrição dos exercícios e trabalhos a entregar será colocada abaixo.
 
 |     N |     prazo | descrição
 | ----: | --------: | :-----------
-| e1 | 9mar | exercícios da aula 2 (anexe a um e-mail com o assunto "l1-e1-fulano", substituindo fulano pelo seu apelido (ver tabela de alunos))
+| e1 | 9mar | exercícios da aula 2 (anexe a um e-mail com o assunto "l1-e1-fulano", substituindo fulano pelo seu campo fulano na planilha de alunos)
 
 ## Notas, etc
 
@@ -67,7 +67,7 @@ Eles receberão uma análise inicial após a entrega, sem avaliação.
 A avaliação será realizada no final do semestre, quando cada aluno enviará a versão final de seus trabalhos (ou um subconjunto deles), juntamente com uma auto-avaliação.
 Além disso, haverá uma conversa individual com o professor.
 
-Informações individuais sobre os alunos (identificação, datas para a entrevista final, notas, etc) estarão em uma planilha disponibilizada brevemente.
+Informações individuais sobre os alunos (identificação, datas para a entrevista final, notas, etc) estarão na [planilha](https://docs.google.com/spreadsheets/d/1wQqnviUZ6sGCQkG1cyPT-np-dEqtmY2wEG5loVLEYlA/edit?usp=sharing).
 A planilha vai sendo preenchida durante o semestre.
 
 As notas aparecerão após o processamento das entrevistas.
