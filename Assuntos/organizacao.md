@@ -170,22 +170,14 @@ Suponha que nosso computador tenha as instruções abaixo (que são as mesmas de
 
 código | mnemônico | tamanho | operações
 ---: | :--- | ---: | :---
-1 | ESCR | 3 | envia o dado em `[[PC+1]]` para o dispositivo identificado por `[PC+2]`; segue na próxima instrução <br>
-              `ES[M[PC+2]]` ← `M[M[PC+1]]` ; `PC` ← `PC+3`
-2 | LE | 3 | leia o dado do dispositivo identificado por `[PC+1]` e coloca-o em `[[PC+2]]`; segue na próxima instrução <br>
-              `M[M[PC+2]]` ← `ES[M[PC+1]]` ; `PC` ← `PC+3`
-3 | SOMA | 4 | soma o dado em `[[PC+1]]` ao dado em `[[PC+2]]` e coloca o resultado em `[[PC+3]]`; segue na próxima instrução <br>
-              `M[M[PC+3]]` ← `M[M[PC+1]] + M[M[PC+2]]` ; `PC` ← `PC+4`
-4 | SUB | 4 | subtrai o dado em `[[PC+2]]` do dado em `[[PC+1]]` e coloca o resultado em `[[PC+3]]`; segue na próxima instrução <br>
-              `M[M[PC+3]]` ← `M[M[PC+1]] - M[M[PC+2]]` ; `PC` ← `PC+4`
-5 | DIV | 4 | divide o dado em `[[PC+1]]` pelo dado em `[[PC+2]]` e coloca o resultado em `[[PC+3]]`; segue na próxima instrução <br>
-              `M[M[PC+3]]` ← `M[M[PC+1]] ÷ M[M[PC+2]]` ; `PC` ← `PC+4`
-6 | MULT | 4 | multiplica o dado em `[[PC+1]]` pelo dado em `[[PC+2]]` e coloca o resultado em `[[PC+3]]`; segue na próxima instrução <br>
-              `M[M[PC+3]]` ← `M[M[PC+1]] × M[M[PC+2]]` ; `PC` ← `PC+4`
-7 | DESV | 2 | desvia a execução para o endereço em `[PC+1]` <br>
-              `PC` ← `M[PC+1]`
-8 | DESVM | 4 | se o dado em `[[PC+1]]` for maior que o dado em `[[PC+2]]`, desvia para o endereço em `[PC+1]`, senão segue na próxima instrução <br>
-              `se M[M[PC+1]]` > `M[M[PC+2]] então PC` ← `M[PC+3] senão PC` ← `PC+4`
+1 | ESCR | 3 | envia o dado em `[[PC+1]]` para o dispositivo identificado por `[PC+2]`; segue na próxima instrução <br> `ES[M[PC+2]]` ← `M[M[PC+1]]` ; `PC` ← `PC+3`
+2 | LE | 3 | leia o dado do dispositivo identificado por `[PC+1]` e coloca-o em `[[PC+2]]`; segue na próxima instrução <br> `M[M[PC+2]]` ← `ES[M[PC+1]]` ; `PC` ← `PC+3`
+3 | SOMA | 4 | soma o dado em `[[PC+1]]` ao dado em `[[PC+2]]` e coloca o resultado em `[[PC+3]]`; segue na próxima instrução <br> `M[M[PC+3]]` ← `M[M[PC+1]] + M[M[PC+2]]` ; `PC` ← `PC+4`
+4 | SUB | 4 | subtrai o dado em `[[PC+2]]` do dado em `[[PC+1]]` e coloca o resultado em `[[PC+3]]`; segue na próxima instrução <br> `M[M[PC+3]]` ← `M[M[PC+1]] - M[M[PC+2]]` ; `PC` ← `PC+4`
+5 | DIV | 4 | divide o dado em `[[PC+1]]` pelo dado em `[[PC+2]]` e coloca o resultado em `[[PC+3]]`; segue na próxima instrução <br> `M[M[PC+3]]` ← `M[M[PC+1]] ÷ M[M[PC+2]]` ; `PC` ← `PC+4`
+6 | MULT | 4 | multiplica o dado em `[[PC+1]]` pelo dado em `[[PC+2]]` e coloca o resultado em `[[PC+3]]`; segue na próxima instrução <br> `M[M[PC+3]]` ← `M[M[PC+1]] × M[M[PC+2]]` ; `PC` ← `PC+4`
+7 | DESV | 2 | desvia a execução para o endereço em `[PC+1]` <br> `PC` ← `M[PC+1]`
+8 | DESVM | 4 | se o dado em `[[PC+1]]` for maior que o dado em `[[PC+2]]`, desvia para o endereço em `[PC+1]`, senão segue na próxima instrução <br> `se M[M[PC+1]]` > `M[M[PC+2]] então PC` ← `M[PC+3] senão PC` ← `PC+4`
 9 | PARA | 1 | interrompe a execução
 
 Para cada programa abaixo, represente-o em linguagem de montagem, e diga o que faz o programa.
