@@ -2,25 +2,27 @@
 
 Uma linguagem de programação de alto nível permite escrever programas de forma mais abstrata e simples que em linguagem de máquina ou de montagem.
 Para que possa ser executado pelo computador, esse programa deve ser traduzido para um programa equivalente em linguagem de máquina.
-Um programa em uma linguagem de programação é um texto, que deve ser colocado em um arquivo para que essa tradução seja feita, por um programa chamado "compilador".
-O programa traduzido para linguagem de máquina também é colocado em um arquivo (não o mesmo), para que possa ser carregado para a memória pelo sistema operacional para então ser executado pelo processador.
+O programa que realiza essa tradução se chama "compilador".
 
-Para que a tradução não seja complicada demais, uma linguagem de programação geralmente é bastante restritiva sobre como o programa deve ser escrito e formatado. A linguagem que vamos usar, chamada "C" não é exceção.
+Para que a tradução não seja complicada demais, uma linguagem de programação geralmente é bastante restritiva sobre como o programa deve ser escrito e formatado.
+A linguagem que vamos usar, chamada "C" não é exceção.
 
 Um programa na linguagem C é dividido em subprogramas chamados **funções**.
-Os comandos que representam ações a serem executadas pelo processador necessariamente devem estar em alguma função. A execução de um programa C é entendida como a execução dos comandos de uma função.
+Os comandos que representam ações a serem executadas pelo processador necessariamente devem estar em alguma função.
+A execução de um programa C é entendida como a execução dos comandos de uma função.
 
 Cada função de um programa é identificada por seu nome.
 Um programa C pode ter quantas funções quiser, cada uma com um nome diferente.
+Para que uma função seja executada, ela deve ser "chamada" por outra.
+A chamada de uma função é a execução de um comando que pede que uma função seja executada, enquando a função chamadora aguarda, até que a função chamada encerre sua execução (se diz que a função chamada retorna), quando a função chamadora continua a executar.
 
 Uma das funções é especial, e deve ter o nome `main`. 
-Essa é a função principal do programa, e são os comandos dessa função que serão executados quando o programa for executado.
-As outras funções só serão executadas se um comando, ao ser executado, requisitar a sua execução.
-Por enquanto, faremos programas só com uma função (que obrigatoriamente deverá ser chamada `main`).
+Essa é a função principal do programa, e é a única função que é chamada automaticamente.
+Dá para dizer que a função `main` de um programa é chamada pelo sistema operacional quando se pede ao sistema que esse programa seja executado.
 
 Uma função é constituída de 4 partes:
-- **tipo** (vamos ver mais tarde para que serve, por enquanto basta sabermos que para a função `main` o tipo tem que ser `int`);
-- **nome** (pode ser uma sequência qualquer (quase) de caracteres, mas por enquando vai ser `main`)
+- **tipo** — vamos ver mais tarde para que serve, por enquanto basta sabermos que para a função `main` o tipo tem que ser `int`;
+- **nome** — identifica a função; é uma sequência de caracteres, o primeiro obrigatoriamente uma letra, os demais podem ser letras, números ou "_"
 - **argumentos**, entre parênteses (por enquanto não vamos usar argumentos, mas os parênteses são obrigatórios)
 - **corpo**, entre chaves, é aqui que vão os comandos.
 
@@ -30,38 +32,44 @@ int main(){}
 ```
 que instrui o computador para não fazer nada. Não é exatamente um programa útil...
 
-Útil ou não, para poder ser executado, o programa em C deve ser traduzido para código de máquina. O programa em código de máquina deve então ser colocado em um local apripriado da memória, e o processador deve ser instruído a executar a partir desse local.
+Útil ou não, para poder ser executado, o programa em C deve ser traduzido para código de máquina. O programa em código de máquina deve então ser colocado em um local apropriado da memória, e o processador deve ser instruído a executar a partir desse local.
 
 Temos então 3 tarefas distintas a realizar para executar um novo programa em C:
-- produzir um texto com o programa em C. Isso é feito com o auxílio de um programa, chamado editor de textos. Na aula, usamos o editor de textos `nano`, executado com a seguinte linha de comando no linux:
+1. produzir um texto com o programa em C. Isso é feito com o auxílio de um programa, chamado editor de textos. Na aula, usamos o editor de textos `nano`, executado com a seguinte linha de comando no linux:
     ```
-    nano nome.c
+      nano nome.c
     ```
     onde `nome` é um nome qualquer, que vai ser usado para identificar o programa. Não use espaços no nome. `nano` e `.c` devem estar em minúsculas.
     
-    No nano, o programa é gravado com o comando `ctrl-X` (segure a tecla `ctrl` e aperte a tecla `X`).
-- compilar esse texto e produzir um arquivo com o programa executável equivalente. Isso é feito por um programa chamado compilador. Em aula, usamos o programa `gcc`, executado com a seguinte linha de comando no linux:
+    Para sair do nano, use o comando `ctrl-X` (segure a tecla `ctrl` e aperte a tecla `X`).
+    O nano vai pedir para confirmar a gravação do arquivo e oferecer a possibilidade para usar um novo nome ao gravá-lo.
+2. compilar esse texto e produzir um arquivo com o programa executável equivalente. Isso é feito por um programa chamado compilador. Em aula, usamos o programa `gcc`, executado com a seguinte linha de comando no linux:
     ```
-    gcc nome.c -o nome
+      gcc nome.c -o nome
     ```
-    onde `nome` é o mesmo nome de antes. Esse comando está instruindo o gcc a compilar o programa em C que está no arquivo `nome.c` (chamado programa fonte) e colocar o resultado da compilação no arquivo `nome` (chamado programa executável).
+    onde `nome` é o mesmo nome de antes. Esse comando está instruindo o gcc a compilar o programa em C que está no arquivo `nome.c` (chamado programa fonte) e colocar o resultado da compilação no arquivo `nome` (chamado programa executável). Atenção, o que vai depois de `-o` é o nome de um arquivo que será destruído caso já exista.
 
-    Durante a execução, o compilador pode emitir mensagens de erro, caso o arquivo não contenha um programa 100% correto de acordo com as regras da linguagem. Nesse caso, o programa deve ser alterado e compilado novamente.
-- carregar o programa executável em memória e executá-lo. Isso é feito pelo sistema operacional, com uma linha de comando como abaixo:
+    Durante a execução, o compilador pode emitir mensagens de erro, caso o arquivo não contenha um programa 100% correto de acordo com as regras da linguagem.
+    Nesse caso, o programa deve ser alterado e compilado novamente.
+3. carregar o programa executável em memória e executá-lo. Isso é feito pelo sistema operacional, com uma linha de comando como abaixo:
     ```
-    ./nome
+      ./nome
     ```
+
+* * *
 
 A linguagem C é uma linguagem bastante simples, e com poucos recursos disponíveis diretamente na linguagem.
-Essa simplicidade é compensada com bibliotecas de funções bastante amplas, que contém subprogramas já compilados prontos para serem usados por novos programas. Diretamente na linguagem, não existem nem comandos para realizar entrada ou saída de dados.
-Para informar o compilador que nossa programa vai usar alguma dessas funções externas, devemos colocar no início do programa linhas pedindo para incluir alguma biblioteca.
+Diretamente na linguagem, não existem nem comandos para realizar entrada ou saída de dados.
+Essa simplicidade é compensada com uma coleção de bibliotecas, que contêm funções já desenvolvidas, prontas para serem usadas por novos programas.
+Para informar o compilador que nosso programa vai usar alguma dessas funções externas, devemos colocar no início do programa linhas pedindo para incluir as bibliotecas correspondentes.
 Para entrada e saída, a biblioteca de funções padrão se chama `stdio`. O comando para incluí-la é
    ```c
    #include <stdio.h>
    ```
-Após essa inclusão, o programa tem a sua disposição várias funções para realizar entrada e saída de dados. Uma dessas funções chama-se `putchar`, que envia um valor (um `char`) para o dispositivo de saída corrente do programa (que geralmente é o terminal de vídeo).
+Após essa inclusão, o programa tem à sua disposição várias funções para realizar entrada e saída de dados. Uma dessas funções chama-se `putchar`, que envia um valor (um `char`) para o dispositivo de saída corrente do programa (que geralmente é o terminal de vídeo).
 
 Para causar a execução de uma função em C, temos o comando de chamada de função. Ele é constituído pelo nome da função seguido de parênteses contendo os parâmetros da função (se ela for parametrizada) seguido pelo caractere `;`.
+A função `putchar` necessita de um parâmetro, que é o valor a enviar para a saída.
 
 Juntando tudo isso, podemos fazer um programa que envia o valor `50` para a saída assim:
 ```c
@@ -74,10 +82,12 @@ Juntando tudo isso, podemos fazer um programa que envia o valor `50` para a saí
 ```
 
 Compilando e executando esse programa, ele irá imprimir `2`.
-Isso acontece porque um terminal de vídeo, ao receber um número, interpreta esse número como o código de um comando.
-A maior parte desses códigos significa colocar na tela um caractere. O caractere escolhido depende do código. Na quase totalidade dos computadores atuais, essa codificação segue a tabela ASCII, na qual o código 50 corresponde ao caractere `2`.
+
+Ele imprime `2` e não `50` porque um terminal de vídeo como qualquer dispositivo de saída, ao receber um número, interpreta esse número como o código de um comando.
+A maior parte dos códigos recebidos por um terminal de vídeo representa um comando para colocar na tela um caractere. O caractere escolhido depende do código. Na quase totalidade dos computadores atuais, essa codificação segue a tabela ASCII, na qual o código 50 corresponde ao caractere `2`.
 Caso tenha curiosidade, pode ver esses códigos por exemplo na [wikipédia](https://pt.wikipedia.org/wiki/ASCII).
-Dos 128 códigos definidos no padrão ASCII, 95 representam caracteres e os demais representam controles ao terminal. A maior parte dos códigos de controle já não são mais usados. Os mais comuns que são usados representam algumas teclas de controle de um teclado (del, bs, enter, tab) e alguns comandos simples ao terminal (recuar uma posição, recuar para o início da linha, avançar para a linha seguinte). Comandos mais complexos ao terminal (como posicionar o cursor ou trocar a cor dos símbolos) são realizados por sequências do códigos, geralmente iniciadas pelo código ESC.
+
+Dos 128 códigos definidos no padrão ASCII, 95 representam caracteres e os demais representam controles ao terminal. A maior parte dos códigos de controle já não são mais usados. Os mais comuns que são usados representam algumas teclas de controle de um teclado (del, bs, enter, tab, esc) e alguns comandos simples ao terminal (recuar uma posição, recuar para o início da linha, avançar para a linha seguinte). Comandos mais complexos ao terminal (como posicionar o cursor ou trocar a cor dos símbolos) são realizados por sequências do códigos, geralmente iniciadas pelo código ESC.
 
 Para que não necessitemos lembrar dos códigos da tabela, a linguagem permite representar esses valores de outra forma, com o símbolo que se quer entre aspas simples. Por exemplo, `'2'` representa o mesmo valor que `50`. O programa acima é equivalente ao abaixo:
 ```c
@@ -109,14 +119,18 @@ O programa acima pode ser alterado para imprimir o `2` em uma linha inteira:
    }
 ```
 
-Além de usar funções predefinidas como `putchar`, podemos definir nossas próprias funções, além da `main`.
+* * *
+
+Além de usar funções de biblioteca, predefinidas, como `putchar`, podemos definir nossas próprias funções, além da `main`.
 Todas as funções têm o mesmo formato: `tipo nome (parâmetros) {corpo}`.
 No caso da `main`, o tipo obrigatoriamente é `int`, o que quer dizer que a função calcula um valor inteiro.
-Esse valor diz ao sistema operacional se houve um erro na execução do programa ou não.
-A função main também é uma excessão em que se pode dizer que ela calcula um valor quando ela não calcula nada (que é o caso da nossa função main acima) — nesse caso o compilador deve gerar automaticamente o cálculo de um valor para informar o sistema que não houve erro.
-Para as demais funções, é considerado um erro dizer que a função calcula um valor e ela não calcular.
+O valor calculado por main diz ao sistema operacional se a execução do programa ocorreu sem problemas (valor 0) ou se houve algum erro na execução do programa (qualquer outro valor).
+
+Se uma função é declarada como calculando um valor (tendo o tipo `int` por exemplo), essa função deve ter um comando que calcula algum valor, ou o compilador detecta um erro.
+A função main é uma exceção, e caso ela não contenha esse cálculo o compilador deve gerar automaticamente o cálculo do valor 0 para informar o sistema que não houve erro.
+
 Para dizer que uma função não calcula nada, usa-se o tipo `void`.
-Então, se quisermos fazer uma função que só imprime uma linha com `2`, e depois chamarmos essa função na main:
+Então, se quisermos fazer uma função que não calcula nada e só imprime uma linha com `2`, e depois chamarmos essa função na main, podemos fazer assim:
 
 ```c
    #include <stdio.h>
