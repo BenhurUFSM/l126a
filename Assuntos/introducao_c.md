@@ -288,3 +288,137 @@ Podemos usar nosso computador como uma calculadora (um tanto restrita) alterando
    }
 ```
 Uma restrição importante é que nossa função `impnum` só tem uma chamada a `putchar`, o que quer dizer que ela só imprime um caractere. O que acontecerá se for feita uma chamada `impnum(12)`?
+
+Precisamos aprimorar nossa função para que imprima números de dois dígitos. Como já sabemos imprimir números de um dígito, uma forma de atacar o problema é extrair os dígitos no número a imprimir e imprimir esses dígitos separados.
+Para isso, usamos expressões aritméticas. Para calcular o valor do dígito das dezenas de um número de 2 dígitos, podemos dividir esse número por 10, e para as unidades, pegar o resto dessa divisão. Por exemplo, dividindo 12 por 10 tem-se quociente 1 e resto 2. Dividindo 58 por 10, temos 5 e resto 8 etc.
+
+Vamos chamar nossa nova função de impnum2, e para manter a mesma lógica, renomear a função anterior para impnum1:
+```c
+   void impnum1(int num)
+   {
+      putchar('0' + num);
+   }
+
+   void impnum2(int num)
+   {
+      impnum1(num / 10);
+      impnum1(num % 10);
+   }
+```
+O nome de um parâmetro só é conhecido pela função que usa esse parâmetro, não há confusão quando duas funções usam o mesmo nome para seus parâmetros — apesar de terem o mesmo nome, são entidades diferentes e poder representar valores diferentes. O parâmetro de uma função só existe (só tem valor associado) enquanto essa função estiver sendo executada.
+
+Agora podemos imprimir números entre 0 e 99. Faça um programa para testar.
+
+Poderíamos implementar impnum2 sem a ajuda de impnum1, usando putchar diretamente:
+```c
+   void impnum2(int num)
+   {
+      putchar('0' + num / 10);
+      putchar('0' + num % 10);
+   }
+```
+
+E se tivermos números maiores que 99?
+Precisamos extrair a centena. Fácil, `num/100`. Mas a extração da dezena tem que ser alterada para ficar limitada a 9: `num / 10 % 10`.
+
+Para números de 4 dígitos, o milhar é `num/1000` e a centena tem que ser ajustada com `%10`. De forma geral, imprimir um dígito é:
+```c
+   putchar('0' + num / X % 10);
+```
+em que X é 1 para o dígito das unidades, 10 para o das dezenas, 100 para centena, 1000 para milhar etc.
+
+Uma outra forma de pensar é tentando reutilizar as funções que já temos: se já tivermos uma função que imprime números de 1 dígito, simplifica a implementação de uma para imprimir números de 2 dígitos? 
+Parece que sim:
+```c
+   void impnum1(int num)
+   {
+      putchar('0' + num % 10);
+   }
+
+   void impnum2(int num)
+   {
+      impnum1(num / 10);
+      impnum1(num);
+   }
+```
+E com 3? Mesma ideia:
+```c
+   void impnum3(int num)
+   {
+      impnum2(num / 10);
+      impnum1(num);
+   }
+```
+E assim por diante:
+```c
+   void impnum7(int num)
+   {
+      impnum6(num / 10);
+      impnum1(num);
+   }
+```
+Todas essas funções são muito parecidas, deve ter alguma forma de fazer uma genérica, que imprime números com qualquer quantidade de dígitos.
+Uma forma é supor que essa função já existe, e usá-la para sua própria implementação (um pouco como podemos implementar a função de 7 dígitos supondo que a de 6 já exista). O que as funções acima fazem é chamar uma função para imprimir `num/10`, que é o número sem o último dígito, e depois imprime o dígito que falta. Essa impressão do número com um dígito a menos só é necessária se o número a imprimir for maior que 9, senão só precisa da impressão do último dígito.
+
+Em C, podemos usar o comando `if` para realizar a execução condicional de comandos. No nosso caso, só queremos imprimir `num/10` se `num` for maior que `9` (ou maior ou igual a 10):
+```c
+   void impnum(int num)
+   {
+      if (num >= 10) {
+         imprime_um_numero(num / 10);
+      }
+      putchar('0' + num % 10);
+   }
+```
+A função que imprime um número qualquer é a própria `impnum`, então:
+```c
+   void impnum(int num)
+   {
+      if (num >= 10) {
+         impnum(num / 10);
+      }
+      putchar('0' + num % 10);
+   }
+```
+Se a função acima for chamada com o valor 3, a execução será:
+```
+   num vale 3
+   num não é maior ou igual a 10, não executa o comando seguinte
+   chama putchar para imprimir '0'+3%10  -->  '3'
+```
+Se ela for chamada com o valor 37, a execução será:
+```
+   num vale 37
+   num é maior ou igual a 10, não pula o comando seguinte
+   chama impnum com 37/10
+      nesse ponto, é criada uma nova instância de impnum, a execução corrente fica suspensa
+      num vale 3
+      num não é maior ou igual a 10, não executa o comando seguinte
+      chama putchar para imprimir '0'+3%10  -->  '3'
+      nesse ponto, termina a segunda execução de impnum, a execução continua onde tinha ficado suspensa
+   chama putchar para imprimir '0'+37%10  -->  '7'
+```
+Se ela for chamada com o valor 482, a execução será:
+```
+   num (da primeira instância) vale 482
+   num é maior ou igual a 10, não pula o comando seguinte
+   chama impnum com 482/10
+      nesse ponto, é criada uma nova instância de impnum, a execução corrente fica suspensa
+      num (da segunda instância) vale 48
+      num é maior ou igual a 10, não pula o comando seguinte
+      chama impnum com 48/10
+         nesse ponto, é criada uma nova instância de impnum, a execução corrente fica suspensa
+         num (da terceira instância) vale 4
+         num não é maior ou igual a 10, não executa o comando seguinte
+         chama putchar para imprimir '0'+4%10  -->  '4'
+         nesse ponto, termina a terceira execução de impnum, a execução continua onde tinha ficado suspensa na segunda
+      chama putchar para imprimir '0'+48%10  -->  '8'
+      nesse ponto, termina a segunda execução de impnum, a execução continua onde tinha ficado suspensa na primeira
+   chama putchar para imprimir '0'+482%10  -->  '2'
+```
+
+Exercício
+
+Teste a função impnum acima, fazende um programa que imprime diversos valores. Imprima valores calculados por expressões.
+
+Faça uma função impbin como a impnum acima, para imprimir números em binário. Em binário, os dígitos representam potências de 2, em decimal representam potências de 10 (por isso tem tantos números 10 em impnum). Teste sua função.
