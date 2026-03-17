@@ -121,6 +121,8 @@ O programa acima pode ser alterado para imprimir o `2` em uma linha inteira:
 
 * * *
 
+<a id="func"></a>
+
 Além de usar funções de biblioteca, predefinidas, como `putchar`, podemos definir nossas próprias funções, além da `main`.
 Todas as funções têm o mesmo formato: `tipo nome (parâmetros) {corpo}`.
 No caso da `main`, o tipo obrigatoriamente é `int`, o que quer dizer que a função calcula um valor inteiro.
@@ -213,3 +215,76 @@ Ao final dessas alterações, o programa deve imprimir como abaixo (para alguém
    | a |
    +---+
 ```
+
+
+<a id="impnum"></a>
+
+A função `putchar` envia um número ao terminal, que imprimirá o caractere que é codificado com esse número.
+Por exemplo, se enviarmos o valor `50` será impresso o caractere `2`.
+
+Gostaríamos de ter uma função que, quando enviássemos o valor `50`, ela imprima `50`, dois caracteres, representando o número recebido em decimal.
+
+Vamos começar com um caso mais simples, uma função que recebe um valor entre `0` e `9`, que pode ser impresso em decimal só com um símbolo, e imprime o caractere correspondente. Em outras palavras, se a função receber `0` como parâmetro, deve chamar `putchar('0')`, se receber `1` deve chamar `putchar('1')`, se receber `5` deve chamar `putchar('5')` etc.
+
+Na tabela ASCII, os caracteres que representam os dígitos têm códigos que estão em ordem: o código do `1` é um a mais que o código do `0`; o código do `7` é 7 a mais que o código do `0` etc.
+Então, se tivermos o códivo do `0` e somarmos o valor 7, teremos o código do `7`, e essa lógica funciona para qualquer dos 10 dígitos (inclusive `0`).
+Em outras palavras, para imprimir o dígito que corresponde ao valor `x` devemos enviar ao terminal um código que é `x` além do código do dígito `0`.
+
+Em C, podemos realizar a soma de dois valores com uma expressão aritmética de soma.
+O argumento em uma chamada de função em C pode conter um valor constante para ser passado para o parâmetro da função como usamos até agora, ou pode ter uma expressão aritmética para realizar esse cálculo. Por exemplo, `putchar(22 + 37)` irá passar o valor 59 para `putchar`.
+A chamada `putchar('0' + 5)` irá passar para `putchar` o valor que é 5 a mais que o valor do código do caractere `0`, ou seja, é o código do caractere `5`.
+
+Juntando isso tudo, podemos fazer uma função (chamada por exemplo `impnum`), que recebe como parâmetro um valor entre 0 e 9 e imprime o dígito decimal correspondente a esse valor. Em outras palavras, imprime o valor que queremos:
+```c
+   void impnum(int num)
+   {
+      putchar('0' + num);
+   }
+```
+
+Podemos testar essa função com o seguinte programa, por exemplo:
+```c
+   #include <stdio.h>
+
+   void impnum(int num)
+   {
+      putchar('0' + num);
+   }
+
+   void pulalinha()
+   {
+      putchar('\n');
+   }
+
+   int main()
+   {
+      impnum(0);
+      pulalinha();
+      impnum(9);
+      pulalinha();
+      impnum(3 + 2);
+      pulalinha();
+   }
+```
+Além da soma, temos mais operadores aritméticos:
+| operação | operador |
+| :---     | --- |
+| soma | + |
+| subtração | - |
+| multiplicação | * |
+| divisão | / |
+| resto da divisão | % |
+
+E podemos misturá-los em uma expressão aritmética — eles seguem as regras normais de precedência, e se pode usar parênteses para forçar essa precedência.
+Podemos usar nosso computador como uma calculadora (um tanto restrita) alterando a função main:
+```c
+   int main()
+   {
+      impnum(3 * 3);
+      pulalinha();
+      impnum(2 + 18 / 9);
+      pulalinha();
+      impnum((7 + 5) / 2);
+   }
+```
+Uma restrição importante é que nossa função `impnum` só tem uma chamada a `putchar`, o que quer dizer que ela só imprime um caractere. O que acontecerá se for feita uma chamada `impnum(12)`?

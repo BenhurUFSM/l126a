@@ -53,6 +53,7 @@ Os assuntos vistos em aula serão listados aqui.
 |    2 | 5mar  | [organização de um computador (cont, exercícios)](Assuntos/organizacao.md)
 |    3 | 10mar | [revisão dos exercícios](Assuntos/revisao_e1.md)
 |    4 | 12mar | [introdução ao C](Assuntos/introducao_c.md)
+|    5 | 17mar | [introdução ao C, cont](Assuntos/introducao_c.md#impnum)
 
 
 ## Exercícios, trabalhos
