@@ -675,3 +675,71 @@ Um ratão:
 ==\o/==
    "
 ```
+
+<a id="for"></a>
+
+* * *
+
+A função `puts` imprime sequência de caracteres (uma string) seguida de um fim de linha (o caractere `\n`).
+Uma outra função semelhante disponibilizada por `stdio.h` é `printf`.
+O primeiro argumento dela é uma string, que é impressa na saída padrão.
+Diferentemente de `puts`, não é impresso um `\n` a mais no final.
+Outra diferença é que quando encontra um caractere `%`, esse caractere marca o início de um pedido de formatação (por isso o `f` no final do nome da função). A função printf realiza a formatação de um valor e imprime esse valor formatado no lugar do pedido de formatação iniciado por `%`.
+Há vários tipos de formatação possíveis, por enquanto vamos usar o `%d`, que é um pedido para formatar um valor inteiro como uma sequência de dígitos decimais.
+O valor a formatar é o argumento seguinte de `printf`.
+
+Por exemplo,
+```c
+   printf("%d", 50);
+```
+escreve `50` no terminal;
+```c
+   printf("O valor é %d.\n", 42);
+```
+escreve `O valor é 42.` e um final de linha no terminal;
+```c
+   printf("%d+%d=%d", 10, a, 10+a);
+```
+escreve `10+`, seguido do valor de `a`, seguido de `=`, seguido do valor de `a` acrescido de 10.
+
+#### O comando de repetição `for`
+
+Nos exemplos anteriores de repetição usando `while`, era bem comum controlar a repetição com uma variável, da seguinte forma: a variável era inicializada com um valor inicial antes do while, o teste do while testava essa variável e no final do while havia um comando para alterar o valor dessa variável.
+
+Essa forma de se estruturar uma repetição é tão comum que a linguagem possui um comando que serve para evidenciá-la. É o comando `for`, que tem a seguinte forma:
+```
+   for (inicialização; teste; incremento) {
+     comandos
+   }
+```
+onde:
+- *inicialização* é um comando que inicializa (e geralmente declara) uma variável (chamada *variável de controle*)
+- *teste* é uma expressão lógica, que geralmente faz alguma comparação com o valor da variável de controle
+- *incremento* é um comando que altera o valor da variável de controle
+- *comandos* são comandos da linguagem, cuja execução é controlada pelo `for`
+
+Por exemplo,
+```c
+   for (int i = 0; i < 10; i = i + 1) {
+      printf("%d\n", i);
+   }
+```
+O funcionamento do `for` é:
+1. o comando de inicialização é executado
+2. o teste é calculado
+3. se o valor do teste for falso, o comando `for` termina e a execução continua no comando seguinte ao `for` (após `}`)
+4. executa os comandos
+5. executa o incremento
+6. continua no passo 2
+
+O comando `for` do exemplo acima irá imprimir 10 números, entre 0 e 9.
+
+#### Exercícios
+
+Use o comando `for` para:
+1. imprimir os números de 1 a 10, um por linha
+1. imprimir os números de 1 a 10, todos na mesma linha, separados por espaço, com um final de linha no final
+1. imprimir os números de 1 a 10, todos na mesma linha, separados por vírgula, com um final de linha no final (só pode ter vírgula entre dois números, não pode ter antes do primeiro nem após o último)
+1. imprimir os números pares entre 1 e 100
+1. fazer uma função que recebe um número como argumento e imprime os números ímpares menores que o número e maiores que a metade do número (por exemplo, se receber 10, deve imprimir `7 9`)
+
