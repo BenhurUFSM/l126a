@@ -30,7 +30,7 @@
 6. Faça uma função para calcular o cosseno de um ângulo em radianos. Use as funções acima e a fórmula *sen²x + cos²x = 1*.
 1. Refaça a tabela, incluindo o cosseno, e imprimindo com 4 casas depois da vírgula. Fica mais ou menos assim:
    ```
-   ang seno   coseno   seno   coseno   seno   coseno   seno   coseno   seno    coseno
+   ang seno  cosseno   seno  cosseno   seno  cosseno   seno  cosseno   seno   cosseno
     0  0.0000 1.0000   0.0010 0.9090   0.xxxx 0.xxxx   0.xxxx 0.xxxx   0.xxxx 0.xxxx
     5  ...
    10  ...
