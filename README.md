@@ -65,6 +65,7 @@ Os assuntos vistos em aula serão listados aqui.
 |   11 |  7abr | [tipos de dados numéricos](Assuntos/tipos_de_dados_numericos.md)
 |   12 |  9abr | [entrada e saída (printf, scanf)](Assuntos/es.md)
 |   13 | 14abr | [complementação do básico de C](Assuntos/resumo1.md)
+|   14 | 16abr | Implementação do t1
 
 
 ## Exercícios, trabalhos
@@ -74,6 +75,7 @@ A descrição dos exercícios e trabalhos a entregar será colocada abaixo.
 |     N |     prazo | descrição
 | ----: | --------: | :-----------
 | e1 | 9mar | exercícios da aula 2 (anexe a um e-mail com o assunto "l1-e1-fulano", substituindo fulano pelo seu campo fulano na planilha de alunos)
+| t1 | 24abr, 12h | [trabalho 1](Assuntos/resumo1.md#t1)
 
 ## Notas, etc
 

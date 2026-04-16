@@ -35,8 +35,43 @@
     5  ...
    10  ...
    ```
-   Pontos extras se imprimir em um quadro, com os caracteres unicode de desenho de linhas (por exemplo em https://en.wikipedia.org/wiki/Box-drawing_characters). Para imprimir esses caracteres, pode ser com \u e o código ou copiar da página e colar no printf:
+   Pontos extras se imprimir em um quadro, usando caracteres ASCII ('+', '-', '|'). Mais ainda se usar os caracteres unicode de desenho de linhas (por exemplo em https://en.wikipedia.org/wiki/Box-drawing_characters). Para imprimir esses caracteres, pode ser com \u e o código ou copiar da página e colar no printf:
    ```
-   printf("└─┤");
    printf("\u2514\u2500\u2524");
+   printf("└─┤");
    ```
+
+##### Dicas e Comentários
+
+- Faça e teste cada função isoladamente. Um programa como o abaixo poderia ser usado para testar a função de pontência:
+   ```c
+   #include <stdio.h>
+
+   double potencia(double x, int n)
+   {
+     //…
+   }
+
+   void testa_potencia()
+   {
+     printf("Teste da potência\n");
+     printf("%lf = %lf\n", 25.0, potencia(5.0, 2));
+     printf("%lf = %lf\n", 6.25, potencia(2.5, 2));
+     printf("%lf = %lf\n", 1./8, potencia(2.0, -3));
+     printf("%lf = %lf\n", -8.0, potencia(-2.0, 3));
+   }
+
+   int main()
+   {
+     testa_potencia();
+   }
+   ```
+- Você pode desenvolver outras função auxiliares. Por exemplo, uma função que calcula o valor absoluto poderia simplificar o teste do valor absoluto no algoritmo de Heron.
+- Desafio: calcule o valor aproximado de `π` à partir da equação `sin(π/4) = √2/2`. Faça chutes com aproximações sucessivas, use as funções de seno e raiz acima para verificar o chute.
+
+<a id=t1></a>
+### Trabalho 1
+
+Implemente as funções descritas nos exercícios acima. Não precisa a tabela só dos senos, pode ser só a tabela final.
+A implementação deve ser colocada em um arquivo chamado `l1-t1-fulano.c` (com "fulano" substituído pelo que está na planilha de informações dos alunos).
+Anexe esse arquivo em um e-mail e envie para `benhur+l126a@inf.ufsm.br`, com assunto `entrega de l1-t1-fulano`, até o prazo limite.
