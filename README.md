@@ -67,6 +67,7 @@ Os assuntos vistos em aula serão listados aqui.
 |   13 | 14abr | [complementação do básico de C](Assuntos/resumo1.md)
 |   14 | 16abr | Implementação do t1
 |   15 | 23abr | Implementação do t1
+|   16 | 28abr | [ponteiros e referências](Assuntos/ponteiro.md)
 
 
 ## Exercícios, trabalhos
