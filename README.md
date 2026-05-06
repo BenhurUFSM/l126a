@@ -69,6 +69,7 @@ Os assuntos vistos em aula serão listados aqui.
 |   15 | 23abr | Implementação do t1
 |   16 | 28abr | [ponteiros e referências](Assuntos/ponteiro.md)
 |   17 | 30abr | [vetores](Assuntos/vetor.md)
+|   18 |  5mai | [strings](Assuntos/string.md)
 
 
 ## Exercícios, trabalhos
