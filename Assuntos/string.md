@@ -108,3 +108,91 @@ Entre elas:
 5. Faça uma função que recebe um inteiro e um vetor de char. O inteiro diz o tamanho do vetor. A função deve ler uma linha da entrada (ler caracteres com getchar até o `\n`) e colocar esses caracteres no vetor como uma string. A string deve ser corretamente terminada com '\0', não deve conter o '\n', não deve extrapolar a capacidade do vetor, deve descartar os caracteres que não cabem, caso a linha seja muito grande. Deve suportar uma linha vazia (se o primeiro caractere for '\n', deve retornar uma string vazia válida, com '\0' no início do vetor).
 6. Faça uma função para ler uma nova senha do usuário. A função recebe o tamanho de um vetor e um vetor de char. O vetor contém uma string com a senha antiga do usuário. A função deve ler a senha 2 vezes, e só aceitar se as duas forem iguais, se for uma senha válida e se for diferente da senha antiga. Se a primeira senha digitada for vazia, a função deve retornar sem pedir a segunda digitação. Caso a primeira não seja válida, deve pedir novamente até que seja. Caso a segunda não seja igual à primeira, deve pedir novamente a primeira. A função deve retornar um `bool` que é `true` se foi digitada uma nova senha (e a nova senha deve ser colocada no vetor) ou `false` se a senha digitada for vazia (e nesse caso o vetor recebido não deve ser alterado).
 
+### Caixa de areia
+
+Quando se está iniciando a programar com vetores e strings, é comum cometer erros, principalmente extrapolando o tamanho do vetor e esquecendo de colocar o '\0' no final.
+Uma "caixa de areia" pode ajudar a pegar os erros mais simples. É um espaço de memória alocado dinamicamente (veremos isso mais tarde), dentro do qual se coloca o vetor. Em volta do vettor, coloca-se caracteres conhecidos (no caso, '~'). Se, depois de realizar operações com o vetor algum desses caracteres tiver sido alterado, é sinal que se acessou além do final do vetor. No final da caixa, coloca-se um '\0' para limitar o estrago causado pelo esquecimento de um '\0' no interior do vetor.
+Para usar, coloque o código abaixo no início do programa, e substitua a declaração de um vetor como `char v[10];` por `char *v = cx(10);`, e uma declaração como `char v[10] = "teste";` por `char *v = cxi(10, "teste);`. No final da função que declara o vetor, chame `ver(v);`.
+Por exemplo, um código como:
+```c
+   char s1[20] = "Oi ";
+   char s2[10];
+
+   strcpy(s2, s1);
+   printf("s2 = [%s]\n", s2);
+   //... faz mais coisas com s1 e s2
+```
+seria trocado por:
+```c
+   char *s1 = cxi(20, "Oi ");
+   char *s2 = cx(10);
+
+   strcpy(s2, s1);
+   printf("s2 = [%s]\n", s2);
+   //... faz mais coisas com s1 e s2
+
+   ver(s1);
+   ver(s2);
+```
+Código para a caixa de areia:
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+char *cx(int n)
+{
+  if (n < 1 || n > 100) {
+    printf("Somente caixas de até 100 caracteres\n");
+    return NULL;
+  }
+  // aloca 12 bytes a mais que o tamanho do vetor
+  int t = n + 12;
+  char *m = malloc(t);
+  // inicializa tudo com '~'
+  for (int i = 1; i < t-1; i++) m[i] = '~';
+  // exceto a primeira posição, com o tamanho e a última com 0
+  m[0] = n;
+  m[t-1] = '\0';
+  // retorna o "vetor" 6 posições além do início da região
+  return &m[t+6];
+}
+
+char *cxi(int n, char s[])
+{
+  if (n < strlen(s) + 1) {
+    printf("A string '%s' não cabe em um vetor de tamanho %d\n", s, n);
+  }
+  char *v = cx(n);
+  strcpy(v, s);
+  return v;
+}
+
+bool tem_til(char v[])
+{
+  for (int i = 0; i < 5; i++) {
+    if (v[i] != '~') return false;
+  }
+  return true;
+}
+
+void ver(char *v)
+{
+  // encontra o início da região, 6 bytes antes do vetor
+  char *m = &v[-6];
+  // pega o tamanho, vê se é razoável
+  int n = m[0];
+  if (n < 1 || n > 100) {
+    printf("tamanho inválido da caixa\n");
+    return;
+  }
+  // vê se os tils e o '\0' sobreviveram
+  int t = n + 12;
+  if (!tem_til(&m[1]) || !tem_til(&m[t-6]) || m[t-1] != '\0')) {
+    printf("a areia da caixa foi mexida\n");
+  } else {
+    printf("a caixa parece ok\n");
+  }
+  // libera a memória
+  free(m);
+}
+```
