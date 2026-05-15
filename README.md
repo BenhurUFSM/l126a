@@ -70,6 +70,9 @@ Os assuntos vistos em aula serão listados aqui.
 |   16 | 28abr | [ponteiros e referências](Assuntos/ponteiro.md)
 |   17 | 30abr | [vetores](Assuntos/vetor.md)
 |   18 |  5mai | [strings](Assuntos/string.md)
+|   19 |  7mai | Implementação do t2
+|   20 | 12mai | Implementação do t2
+|   21 | 14mai | [registros](Assuntos/registros.md)
 
 
 ## Exercícios, trabalhos
