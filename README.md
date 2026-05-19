@@ -73,6 +73,7 @@ Os assuntos vistos em aula serão listados aqui.
 |   19 |  7mai | Implementação do t2
 |   20 | 12mai | Implementação do t2
 |   21 | 14mai | [registros](Assuntos/registros.md)
+|   22 | 19mai | [exercícios](Assuntos/a22.md)
 
 
 ## Exercícios, trabalhos
