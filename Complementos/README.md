@@ -1,6 +1,6 @@
-## controle de tela e teclado
+## Controle de tela e teclado
 
-Contém os seguintes arquivos:
+Contém os arquivos abaixo. Leia o conteúdo de `tela.h` e `ex_tela.c`. Não precisa olhar em `tela.c`.
 - `tela.h`
   - definição do tipo `tecla_t` para representar uma tecla do teclado, incluindo algumas teclas de controle 
   - declaração de funções para ler o teclado, obter informações sobre a tela, selecionar cores e cursor, e posicionar o cursor
