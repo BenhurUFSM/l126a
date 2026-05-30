@@ -16,6 +16,8 @@ Contém os arquivos abaixo. Leia o conteúdo de `tela.h` e `ex_tela.c`. Não pre
   - para encerrar o programa, pressione ESC
   - caso interrompa a execução do programa, execute `stty sane` ou `reset` no terminal.
 
+Tem também um segundo exemplo, `ex2_tela.c`, organizado de forma mais próxima ao que é pedido no t3.
+
 ## Controle de tela gráfica, teclado, mouse
 
 Alternativamente, pode ser feita uma implementação usando modo gráfico.
