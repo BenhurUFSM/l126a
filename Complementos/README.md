@@ -18,6 +18,13 @@ Contém os arquivos abaixo. Leia o conteúdo de `tela.h` e `ex_tela.c`. Não pre
 
 Tem também um segundo exemplo, `ex2_tela.c`, organizado de forma mais próxima ao que é pedido no t3.
 
+Tem um terceiro exemplo, para testar as combinações de teclas de controle com setas que são recebidas pelo programa. Compile e execute com
+```
+gcc -o testa_teclado testa_teclado.c tela.c
+./testa_teclado
+```
+pressione as teclas de seta, junto com combinações das 4 teclas de controle (shift, alt, control, super), para ver quais são impressas. Para terminar o programa, pressione 'q'.
+
 ## Controle de tela gráfica, teclado, mouse
 
 Alternativamente, pode ser feita uma implementação usando modo gráfico.

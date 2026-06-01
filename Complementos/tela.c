@@ -117,14 +117,10 @@ static tecla_t t_esc()
     t_largura = n3;
     return processa_teclado();
   }
-  int shift = 0;
-  if (n2 == 2) shift = 4; // shift
-  if (n2 == 3) shift = 8; // alt
-  if (n2 == 5) shift = 12; // control
-  if (ch == 'A') return shift + T_CIMA;
-  if (ch == 'B') return shift + T_BAIXO;
-  if (ch == 'C') return shift + T_DIREITA;
-  if (ch == 'D') return shift + T_ESQUERDA;
+  if (ch >= 'A' && ch <= 'D') {
+    int shift = (n2 - 1) * 4;
+    return T_CIMA + (ch - 'A') + shift;
+  }
   if (ch == 'F') return T_END;
   if (ch == 'H') return T_HOME;
   if (ch == '~') {
