@@ -75,6 +75,9 @@ Os assuntos vistos em aula serão listados aqui.
 |   21 | 14mai | [registros](Assuntos/registro.md)
 |   22 | 19mai | [exercícios](Assuntos/a22.md)
 |   23 | 21mai | [arquivos](Assuntos/arquivo.md)
+|   24 | 26mai | t3
+|   25 | 28mai | t3
+|   26 |  2jun | [alocação dinâmica de memória](Assuntos/alocacao.md)
 
 
 ## Exercícios, trabalhos
