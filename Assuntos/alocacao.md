@@ -248,3 +248,44 @@ Uma função alternativa de alocação, por vezes preferível em relação à ma
 O desenho abaixo pode ajudar... (A última linha é bobagem, de onde tiraria o 57? Na prática a memória em 57 seria perdida.) Esse desenho é uma simplificação em relação ao que acontece geralmente em um sistema real de alocação de memória.
 
 ![](aloc.png)
+
+A alocação dinâmica e o acesso indireto à memória usando ponteiros são considerados fontes comuns de defeitos em programas. As regras são simples:
+- um ponteiro só pode ser dereferenciado quando aponta para memória "viva", que pertence a uma variável cujo tempo de vida não expirou, ou que pertence a uma região alocada dinamicamente que ainda não foi liberada.
+- para evitar consumo excessivo de memória, o tempo de vida de uma variável (ou de memória alocada dinamicamente) não deve exceder demais seu último acesso.
+
+Falhas em seguir a primeira regra podem causar os mais variados comportamentos indesejados, por representar acesso a região de memória fora da variável que se queria acessar, que não se sabe para que está sendo utilizada. O caso mais comum é acessar o índice `n` de um vetor de tamanho `n`.
+
+Outro caso comum é acessar uma variável para a qual se tem um ponteiro após essa variável ter sido liberada, que pode ser por um `free` no caso de alocação dinâmica ou um erro como:
+```c
+char *int_para_str(int a)
+{
+  char s[20];
+  // formata o número a como uma string em s
+  return s;
+}
+```
+Em C não existe retorno de vetor, é retornado um ponteiro para o primeiro elemento. Como o vetor é local à função, vai ser liberado quando a função terminar, e quem receber o ponteiro retornado tem um ponteiro apontando para uma região de memória liberada, que não deve ser dereferenciado.
+
+A segunda regra leva a se evitar variáveis estáticas, e a se liberar a memória alocada com malloc o quanto antes. Nem sempre é fácil identificar o ponto onde uma variável não será mais necessária, principalmente onde o controle da memória é mais complicado, envolvendo diversos ponteiros para as mesmas regiões de memória. A liberação muito cedo pode levar a erros de acesso à memória liberada; a liberação muito tarde pode levar ao consumo excessivo de memória e necessidade de reinicialização de programas de longa duração.
+
+Como poderia ser corrigida a função acima?
+1. com alocação estática:
+```c
+char *int_para_str(int a)
+{
+  static char s[20];
+  // formata o número a como uma string em s
+  return s;
+}
+```
+Agora, o ponteiro retornado aponta para uma região de memória viva, e pode ser usado depois do retorno da função. O problema é que, se a função for chamada outra vez, essa região é alterada. Não dá para fazer, por exemplo:
+```c
+  printf("a=%s, b=%s\n", int_para_str(a), int_para_str(b));
+```
+Nem mesmo
+```c
+  char *sa, *sb;
+  sa = int_para_str(a);
+  sb = int_para_str(b);
+  printf("a=%s, b=%s\n", sa, sb);
+```
