@@ -278,14 +278,27 @@ char *int_para_str(int a)
   return s;
 }
 ```
-Agora, o ponteiro retornado aponta para uma região de memória viva, e pode ser usado depois do retorno da função. O problema é que, se a função for chamada outra vez, essa região é alterada. Não dá para fazer, por exemplo:
+   Agora, o ponteiro retornado aponta para uma região de memória viva, e pode ser usado depois do retorno da função. O problema é que, se a função for chamada outra vez, essa região é alterada. Não dá para fazer, por exemplo:
 ```c
   printf("a=%s, b=%s\n", int_para_str(a), int_para_str(b));
 ```
-Nem mesmo
+   Nem mesmo
 ```c
   char *sa, *sb;
   sa = int_para_str(a);
   sb = int_para_str(b);
   printf("a=%s, b=%s\n", sa, sb);
 ```
+2. Com alocação dinâmica, a função poderia ser escrita assim:
+```c
+char *int_para_str(int a)
+{
+  char *s;
+  s = malloc(20);
+  if (s != NULL) {
+    // formata o número a como uma string em s
+  }
+  return s;
+}
+```
+O problema agora é que quem chama essa função tem o compromisso de liberar a memória recebida.
