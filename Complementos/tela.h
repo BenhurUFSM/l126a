@@ -25,6 +25,7 @@ typedef enum {
   T_CTRL_G,
   T_CTRL_H,
   T_CTRL_I,
+  T_TAB = 9,
   T_CTRL_J,
   T_CTRL_K,
   T_CTRL_L,
