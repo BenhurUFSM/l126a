@@ -92,7 +92,7 @@ A descrição dos exercícios e trabalhos a entregar será colocada abaixo.
 | e1 | 9mar | exercícios da aula 2 (anexe a um e-mail com o assunto "l1-e1-fulano", substituindo fulano pelo seu campo fulano na planilha de alunos)
 | t1 | 24abr, 12h | [trabalho 1](Trabalhos/t1.md) [análise](https://docs.google.com/spreadsheets/d/1BxDgQ8kWWWkfVHXDwLWWU6aPdJvBuvBsW4IHmDF5vGA/edit?usp=sharing)
 | t2 | ~13~ 15mai | [trabalho 2](Trabalhos/t2.md)
-| t3 | 18jun | [trabalho 3](Trabalhos/t3.md)
+| t3 | 18jun | [trabalho 3](Trabalhos/t3.md) **Houve alteração nas teclas**
 | final | 21jun,8h | entrega final (aguarde descrição)
 | conversa | 22jun a 3jul | a combinar individualmente
 | exame | 7jul |
