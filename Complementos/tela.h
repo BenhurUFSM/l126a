@@ -1,6 +1,7 @@
-// teclado.h
+// tela.h
 // 
-// declaração de constantes e funções para acesso ao teclado em modo cru
+// declaração de constantes e funções para acesso à tela
+//   e ao teclado em modo cru
 // para l126a
 
 // proteção contra reinclusão:
@@ -15,6 +16,32 @@
 //   declarar variáveis que recebem esses valores.
 typedef enum {
   T_NADA = 0, // nenhuma tecla foi pressionada
+  T_CTRL_A = 1,
+  T_CTRL_B,
+  T_CTRL_C,
+  T_CTRL_D,
+  T_CTRL_E,
+  T_CTRL_F,
+  T_CTRL_G,
+  T_CTRL_H,
+  T_CTRL_I,
+  T_CTRL_J,
+  T_CTRL_K,
+  T_CTRL_L,
+  T_CTRL_M,
+  T_CTRL_N,
+  T_CTRL_O,
+  T_CTRL_P,
+  T_CTRL_Q,
+  T_CTRL_R,
+  T_CTRL_S,
+  T_CTRL_T,
+  T_CTRL_U,
+  T_CTRL_V,
+  T_CTRL_W,
+  T_CTRL_X,
+  T_CTRL_Y,
+  T_CTRL_Z,
   T_ESC = 27, // a tecla esc
   // as setas
   T_CIMA = 256,
