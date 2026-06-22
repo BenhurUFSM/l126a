@@ -94,7 +94,7 @@ A descrição dos exercícios e trabalhos a entregar será colocada abaixo.
 | t2 | ~13~ 15mai | [trabalho 2](Trabalhos/t2.md)
 | t3 | 18jun | [trabalho 3](Trabalhos/t3.md) **Houve alteração nas teclas**
 | final | 21jun,8h | [entrega final](Trabalhos/final.md)
-| conversa | 22jun a 3jul | a combinar individualmente
+| conversa | 22jun a 3jul | horário individual, veja a aba "final" da [planilha](https://docs.google.com/spreadsheets/d/1BxDgQ8kWWWkfVHXDwLWWU6aPdJvBuvBsW4IHmDF5vGA/edit?usp=sharing)
 | exame | 7jul |
 
 ## Notas, etc
