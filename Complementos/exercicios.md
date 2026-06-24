@@ -329,3 +329,27 @@ int main() {
     printf("%d %d\n", a.x, b.x);
 }
 ```
+- Faça uma função que recebe duas datas (com o tipo `data` declarado abaixo), e retorna um `bool` que diz se a primeira data é antes da segunda ou não.
+```c
+typedef struct {
+    int dia;
+    int mes;
+    int ano;
+} data;
+
+bool vem_antes(data a, data b) { ... }
+```
+- Faça uma função que recebe um `long` contendo um número de CPF e retorna um `bool` dizendo se é o CPF de um gaúcho. O antepenúltimo dígito dos CPFs do RS é `0` (por exemplo, 12345678091).
+- Faça uma função que recebe um `int` e um vetor. O `int` diz o número de elementos no vetor. Os dados no vetor são do tipo `pessoa`, como declarado abaixo. A função deve retornar o índice onde está o primeiro gaúcho no vetor, ou -1 caso não exista. Use a função acima para saber quem é gaúcho.
+```c
+typedef struct {
+    char nome[30];
+    long cpf;
+    data nascimento;
+} pessoa;
+
+int primeiro_gaucho(int n, pessoa v[n]) { ... }
+```
+- Faça uma função que recebe os mesmos argumentos da função acima, e retorna o índice do último não gaúcho no vetor.
+- Faça uma função que recebe os mesmos argumentos da função acima, e retorna a diferença de idade entre a pessoa mais idosa e a mais jovem. Considere somente o ano para calcular a diferença. A função deve retornar 0 caso a diferença não possa ser calculada.
+- Faça uma função que recebe os mesmos argumentos da função acima mais uma data, e retorna o nome (um ponteiro para o primeiro caractere do nome) da pessoa no vetor que tem o próximo aniversário após a data fornecida, no mesmo ano, ou NULL caso não haja tal pessoa.
