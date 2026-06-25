@@ -78,9 +78,15 @@ Os assuntos vistos em aula serão listados aqui.
 |   24 | 26mai | t3
 |   25 | 28mai | t3
 |   26 |  2jun | [alocação dinâmica de memória](Assuntos/alocacao.md)
-|   27 |  4jun | alocação dinâmica de memória, cont.
-|   28 |  9jun | desenvolvimento do t3
-|   29 | 11jun | desenvolvimento do t3
+|   27 |  9jun | desenvolvimento do t3
+|   28 | 11jun | desenvolvimento do t3
+|   29 | 16jun | desenvolvimento do t3
+|   30 | 18jun | desenvolvimento do t3
+|   31 | 23jun | entrevistas finais
+|   32 | 25jun | entrevistas finais
+|   33 | 30jun | entrevistas finais
+|   34 |  2jul | entrevistas finais
+|   35 |  7jul | exame
 
 
 ## Exercícios, trabalhos
@@ -95,7 +101,9 @@ A descrição dos exercícios e trabalhos a entregar será colocada abaixo.
 | t3 | 18jun | [trabalho 3](Trabalhos/t3.md) **Houve alteração nas teclas**
 | final | 21jun,8h | [entrega final](Trabalhos/final.md)
 | conversa | 22jun a 3jul | horário individual, veja a aba "final" da [planilha](https://docs.google.com/spreadsheets/d/1BxDgQ8kWWWkfVHXDwLWWU6aPdJvBuvBsW4IHmDF5vGA/edit?usp=sharing)
-| exame | 7jul |
+| e2 | - | [exercícios](Complementos/exercicios.md)
+| exame | 7jul | prova em papel, na sala 334 (a normal de aula)
+
 
 ## Notas, etc
 
